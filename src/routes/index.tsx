@@ -163,10 +163,12 @@ function Index() {
               Karokolegend20@gmail.com
             </a>
             <a
-              href="tel:+639454882910"
+              href="https://wa.me/639851905429"
+              target="_blank"
+              rel="noopener noreferrer"
               className="rounded-full border border-border px-4 py-1.5 font-medium transition hover:bg-accent"
             >
-              +63 945 488 2910
+              +63 985 190 5429
             </a>
           </div>
         </div>
