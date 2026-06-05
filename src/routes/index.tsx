@@ -8,22 +8,60 @@ import rag from "@/assets/rag.png.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Johnson Luib — Virtual Assistant & Automation Portfolio" },
+      { title: "Johnson Luib — General Virtual Assistant" },
       {
         name: "description",
         content:
-          "Virtual Assistant portfolio of Johnson Luib featuring AI-powered n8n automations: email triage, file sorting, RAG assistants, and reporting workflows.",
+          "General Virtual Assistant offering email and calendar management, data entry, research, customer support, and AI-powered workflow automations.",
       },
-      { property: "og:title", content: "Johnson Luib — VA & Automation Portfolio" },
+      { property: "og:title", content: "Johnson Luib — General Virtual Assistant" },
       {
         property: "og:description",
         content:
-          "AI-powered workflow automations built with n8n: email classification, Drive auto-sorter, RAG assistant, fitness coach reports, and more.",
+          "Reliable remote VA support: inbox management, scheduling, research, and smart automations that free up your time.",
       },
     ],
   }),
   component: Index,
 });
+
+type Service = {
+  title: string;
+  description: string;
+};
+
+const services: Service[] = [
+  {
+    title: "Inbox & Calendar Management",
+    description:
+      "Triage emails, filter spam, flag priorities, and keep your calendar organized so you never miss a meeting or deadline.",
+  },
+  {
+    title: "Data Entry & Research",
+    description:
+      "Accurate data input, lead list building, market research, and compiling reports from scattered sources into clean documents.",
+  },
+  {
+    title: "Customer Support",
+    description:
+      "Handle ticket responses, live-chat queries, and follow-ups with a friendly, professional tone that keeps customers happy.",
+  },
+  {
+    title: "File & Document Organization",
+    description:
+      "Sort files into proper folders, name and tag documents consistently, and keep shared drives tidy and easy to navigate.",
+  },
+  {
+    title: "Social Media & Content Assistance",
+    description:
+      "Schedule posts, draft captions, pull basic analytics, and help maintain a consistent online presence for your brand.",
+  },
+  {
+    title: "Travel & Appointment Booking",
+    description:
+      "Book flights, hotels, and transport; set reminders; and coordinate schedules across time zones so trips go smoothly.",
+  },
+];
 
 type Automation = {
   title: string;
@@ -103,19 +141,20 @@ function Index() {
       <header className="border-b border-border">
         <div className="mx-auto max-w-6xl px-6 py-20 md:py-28">
           <p className="text-sm font-medium uppercase tracking-[0.2em] text-muted-foreground">
-            Virtual Assistant · Automation Builder
+            General Virtual Assistant
           </p>
           <h1 className="mt-4 text-4xl font-bold tracking-tight md:text-6xl">
             Johnson Luib
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl">
-            I help busy teams reclaim their time by combining traditional VA skills
-            with AI-powered workflow automations built in n8n — email triage, file
-            organization, customer support, and reporting that runs itself.
+            I provide reliable day-to-day virtual assistance — inbox management,
+            scheduling, data entry, research, and customer support — and I also build
+            smart automations that remove repetitive admin work so you can focus on
+            what actually matters.
           </p>
           <div className="mt-8 flex flex-wrap gap-3 text-sm">
             <span className="rounded-full border border-border px-3 py-1 text-muted-foreground">
-              Surigao City, Philippines
+              Surigao City, Philippines · Remote
             </span>
             <a
               href="mailto:Karokolegend20@gmail.com"
@@ -133,16 +172,44 @@ function Index() {
         </div>
       </header>
 
+      {/* Services */}
+      <section className="mx-auto max-w-6xl px-6 py-16 md:py-24">
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold tracking-tight md:text-3xl">
+            What I Can Help With
+          </h2>
+          <p className="mt-2 max-w-xl text-muted-foreground">
+            Day-to-day tasks that keep your business running smoothly.
+          </p>
+        </div>
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {services.map((s) => (
+            <article
+              key={s.title}
+              className="rounded-2xl border border-border bg-card p-6 transition hover:shadow-md"
+            >
+              <h3 className="text-base font-semibold text-card-foreground">
+                {s.title}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                {s.description}
+              </p>
+            </article>
+          ))}
+        </div>
+      </section>
+
       {/* Automations */}
-      <main className="mx-auto max-w-6xl px-6 py-16 md:py-24">
+      <main className="border-t border-border mx-auto max-w-6xl px-6 py-16 md:py-24">
         <div className="mb-12 flex items-end justify-between gap-6">
           <div>
             <h2 className="text-2xl font-bold tracking-tight md:text-3xl">
-              Sample Automations
+              Workflows I Build
             </h2>
             <p className="mt-2 max-w-xl text-muted-foreground">
-              A few workflows I've built end-to-end. Each one replaces hours of
-              repetitive admin work.
+              On top of regular VA support, I design automations that handle
+              repetitive work in the background.
             </p>
           </div>
         </div>
@@ -191,17 +258,21 @@ function Index() {
           <h2 className="text-2xl font-bold tracking-tight">Tools I work with</h2>
           <div className="mt-6 flex flex-wrap gap-2">
             {[
-              "n8n",
-              "Supabase",
-              "Qdrant",
               "Google Workspace",
               "Gmail",
               "Google Drive",
               "Sheets",
+              "Microsoft Office",
               "Airtable",
+              "Notion",
+              "Trello",
+              "Slack",
+              "Zoom",
+              "n8n",
+              "Supabase",
+              "Qdrant",
               "Gemini",
               "OpenRouter",
-              "Microsoft Office",
               "CRM tools",
             ].map((t) => (
               <span
