@@ -137,59 +137,82 @@ const automations: Automation[] = [
 function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground">
+      {/* Nav */}
+      <nav className="border-b border-border">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
+          <span className="font-mono text-sm text-muted-foreground">
+            <span className="text-muted-foreground">{"{ "}</span>
+            <span className="text-foreground">johnson.luib</span>
+            <span className="text-muted-foreground">{" }"}</span>
+          </span>
+          <div className="hidden gap-8 text-sm text-muted-foreground md:flex">
+            <a href="#services" className="transition hover:text-foreground">Services</a>
+            <a href="#work" className="transition hover:text-foreground">Work</a>
+            <a href="#tools" className="transition hover:text-foreground">Tools</a>
+            <a href="#contact" className="transition hover:text-foreground">Contact</a>
+          </div>
+        </div>
+      </nav>
+
       {/* Hero */}
-      <header className="border-b border-border">
-        <div className="mx-auto max-w-6xl px-6 py-20 md:py-28">
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-muted-foreground">
-            General Virtual Assistant
-          </p>
-          <h1 className="mt-4 text-4xl font-bold tracking-tight md:text-6xl">
-            Johnson Luib
+      <header className="relative overflow-hidden border-b border-border">
+        <div
+          className="pointer-events-none absolute inset-0 opacity-60"
+          style={{
+            background:
+              "radial-gradient(600px circle at 20% 0%, color-mix(in oklab, var(--primary) 12%, transparent), transparent 60%)",
+          }}
+          aria-hidden
+        />
+        <div className="relative mx-auto max-w-6xl px-6 py-24 md:py-32">
+          <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card/50 px-3 py-1 font-mono text-xs text-muted-foreground">
+            <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_8px_var(--primary)]" />
+            Available for remote VA &amp; automation work
+          </span>
+          <h1 className="mt-6 max-w-4xl text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl">
+            Virtual assistance and{" "}
+            <span className="text-primary">smart automations</span> that take
+            work off your plate.
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl">
-            I provide reliable day-to-day virtual assistance — inbox management,
-            scheduling, data entry, research, and customer support — and I also build
-            smart automations that remove repetitive admin work so you can focus on
-            what actually matters.
+            Hi, I'm Johnson — a general VA from Surigao City, Philippines.
+            I handle inbox, calendar, research, and support work, and I build
+            AI workflows so the repetitive parts run themselves.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3 text-sm">
-            <span className="rounded-full border border-border px-3 py-1 text-muted-foreground">
-              Surigao City, Philippines · Remote
-            </span>
+          <div id="contact" className="mt-10 flex flex-wrap gap-3 text-sm">
             <a
               href="mailto:Karokolegend20@gmail.com"
-              className="rounded-full bg-primary px-4 py-1.5 font-medium text-primary-foreground transition hover:opacity-90"
+              className="rounded-md bg-primary px-5 py-2.5 font-medium text-primary-foreground transition hover:opacity-90"
             >
-              Karokolegend20@gmail.com
+              Email me
             </a>
             <a
               href="https://wa.me/639851905429"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full border border-border px-4 py-1.5 font-medium transition hover:bg-accent"
+              className="rounded-md border border-border bg-card px-5 py-2.5 font-medium transition hover:bg-secondary"
             >
-              +63 985 190 5429
+              WhatsApp +63 985 190 5429
             </a>
           </div>
         </div>
       </header>
 
       {/* Services */}
-      <section className="mx-auto max-w-6xl px-6 py-16 md:py-24">
-        <div className="mb-12">
-          <h2 className="text-2xl font-bold tracking-tight md:text-3xl">
-            What I Can Help With
-          </h2>
-          <p className="mt-2 max-w-xl text-muted-foreground">
-            Day-to-day tasks that keep your business running smoothly.
-          </p>
-        </div>
+      <section id="services" className="mx-auto max-w-6xl px-6 py-20 md:py-24">
+        <p className="font-mono text-sm text-primary">// SERVICES</p>
+        <h2 className="mt-3 text-2xl font-bold tracking-tight md:text-3xl">
+          What I can help with
+        </h2>
+        <p className="mt-2 max-w-xl text-muted-foreground">
+          Day-to-day tasks that keep your business running smoothly.
+        </p>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((s) => (
             <article
               key={s.title}
-              className="rounded-2xl border border-border bg-card p-6 transition hover:shadow-md"
+              className="rounded-xl border border-border bg-card p-6 transition hover:border-primary/40"
             >
               <h3 className="text-base font-semibold text-card-foreground">
                 {s.title}
@@ -203,62 +226,64 @@ function Index() {
       </section>
 
       {/* Automations */}
-      <main className="border-t border-border mx-auto max-w-6xl px-6 py-16 md:py-24">
-        <div className="mb-12 flex items-end justify-between gap-6">
-          <div>
-            <h2 className="text-2xl font-bold tracking-tight md:text-3xl">
-              Workflows I Build
-            </h2>
-            <p className="mt-2 max-w-xl text-muted-foreground">
-              On top of regular VA support, I design automations that handle
-              repetitive work in the background.
-            </p>
+      <section id="work" className="border-t border-border">
+        <div className="mx-auto max-w-6xl px-6 py-20 md:py-24">
+          <p className="font-mono text-sm text-primary">// SELECTED WORK</p>
+          <h2 className="mt-3 text-2xl font-bold tracking-tight md:text-3xl">
+            Automation projects
+          </h2>
+          <p className="mt-2 max-w-xl text-muted-foreground">
+            On top of regular VA support, I design workflows that handle
+            repetitive work in the background.
+          </p>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            {automations.map((a) => (
+              <article
+                key={a.title}
+                className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card transition hover:border-primary/40"
+              >
+                <div className="aspect-video overflow-hidden border-b border-border bg-muted">
+                  <img
+                    src={a.image}
+                    alt={`${a.title} workflow screenshot`}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.02]"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col p-6">
+                  <span className="font-mono text-xs text-muted-foreground">
+                    {a.tag}
+                  </span>
+                  <h3 className="mt-2 text-lg font-semibold text-card-foreground">
+                    {a.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                    {a.description}
+                  </p>
+                  <ul className="mt-4 space-y-1.5 font-mono text-xs text-muted-foreground">
+                    {a.bullets.map((b) => (
+                      <li key={b} className="flex gap-2">
+                        <span className="text-primary">→</span>
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
-
-        <div className="grid gap-8 md:grid-cols-2">
-          {automations.map((a) => (
-            <article
-              key={a.title}
-              className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition hover:shadow-lg"
-            >
-              <div className="aspect-video overflow-hidden bg-muted">
-                <img
-                  src={a.image}
-                  alt={`${a.title} workflow screenshot`}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.02]"
-                />
-              </div>
-              <div className="flex flex-1 flex-col p-6">
-                <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
-                  {a.tag}
-                </span>
-                <h3 className="mt-2 text-xl font-semibold text-card-foreground">
-                  {a.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                  {a.description}
-                </p>
-                <ul className="mt-4 space-y-1.5 text-sm text-card-foreground">
-                  {a.bullets.map((b) => (
-                    <li key={b} className="flex gap-2">
-                      <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-primary" />
-                      {b}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </article>
-          ))}
-        </div>
-      </main>
+      </section>
 
       {/* Stack */}
-      <section className="border-t border-border bg-secondary/40">
-        <div className="mx-auto max-w-6xl px-6 py-16">
-          <h2 className="text-2xl font-bold tracking-tight">Tools I work with</h2>
-          <div className="mt-6 flex flex-wrap gap-2">
+      <section id="tools" className="border-t border-border">
+        <div className="mx-auto max-w-6xl px-6 py-20">
+          <p className="font-mono text-sm text-primary">// TOOLS</p>
+          <h2 className="mt-3 text-2xl font-bold tracking-tight">
+            Tools I work with
+          </h2>
+          <div className="mt-8 flex flex-wrap gap-2">
             {[
               "Google Workspace",
               "Gmail",
@@ -279,7 +304,7 @@ function Index() {
             ].map((t) => (
               <span
                 key={t}
-                className="rounded-md border border-border bg-background px-3 py-1.5 text-sm"
+                className="rounded-md border border-border bg-card px-3 py-1.5 font-mono text-sm text-muted-foreground"
               >
                 {t}
               </span>
@@ -289,11 +314,12 @@ function Index() {
       </section>
 
       <footer className="border-t border-border">
-        <div className="mx-auto max-w-6xl px-6 py-10 text-sm text-muted-foreground">
-          © {new Date().getFullYear()} Johnson E. Luib Jr. · Available for full-time
-          and part-time remote VA engagements.
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-8 font-mono text-xs text-muted-foreground">
+          <span>© {new Date().getFullYear()} Johnson E. Luib Jr.</span>
+          <span>Available for full-time &amp; part-time remote engagements.</span>
         </div>
       </footer>
     </div>
   );
 }
+
