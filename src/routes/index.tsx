@@ -103,7 +103,7 @@ const automations: Automation[] = [
       "Fallback path for messages needing review",
     ],
     stack: ["n8n", "Gmail API", "Gemini"],
-    image: emaillabel.url,
+    image: emaillabel,
   },
   {
     title: "Google Drive Auto Sorter",
@@ -116,7 +116,7 @@ const automations: Automation[] = [
       "Moves the file, no manual sorting",
     ],
     stack: ["n8n", "Google Drive", "Gemini"],
-    image: sorter.url,
+    image: sorter,
   },
   {
     title: "AI Customer Support Agent (Auto Parts)",
@@ -129,7 +129,7 @@ const automations: Automation[] = [
       "Auto re-index on Drive file changes",
     ],
     stack: ["n8n", "Supabase pgvector", "Gemini"],
-    image: autoparts.url,
+    image: autoparts,
   },
   {
     title: "RAG Knowledge Pipeline",
@@ -142,7 +142,7 @@ const automations: Automation[] = [
       "Plug-and-play for any chat agent",
     ],
     stack: ["n8n", "Supabase", "Gemini Embeddings"],
-    image: rag.url,
+    image: rag,
   },
   {
     title: "Strava Fitness Coach — Email Report",
@@ -155,7 +155,7 @@ const automations: Automation[] = [
       "HTML email + Google Sheets log",
     ],
     stack: ["n8n", "Strava API", "Google Sheets"],
-    image: fitness.url,
+    image: fitness,
   },
 ];
 
