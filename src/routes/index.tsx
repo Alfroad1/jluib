@@ -540,11 +540,11 @@ function Index() {
               </p>
             </div>
             <p className="font-mono text-xs text-muted-foreground">
-              24+ tools · 3 categories
+              26+ tools · 4 categories
             </p>
           </div>
 
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
+          <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {[
               {
                 group: "Productivity & Admin",
@@ -576,13 +576,24 @@ function Index() {
                 tag: "03",
                 items: [
                   { name: "n8n", slug: "n8n", color: "EA4B71" },
+                  { name: "GHL", slug: "gohighlevel", color: "FFFFFF" },
                   { name: "Supabase", slug: "supabase", color: "3ECF8E" },
                   { name: "Qdrant", slug: "qdrant", color: "DC244C" },
                   { name: "Gemini", slug: "googlegemini", color: "8E75B2" },
                   { name: "ChatGPT", slug: "openai", color: "10A37F" },
                   { name: "Claude", slug: "anthropic", color: "D97757" },
                   { name: "Grok", slug: "x", color: "FFFFFF" },
-                  { name: "GHL", slug: "gohighlevel", color: "FFFFFF" },
+                ],
+              },
+              {
+                group: "SMM & Creative",
+                tag: "04",
+                items: [
+                  { name: "Photoshop", slug: "adobephotoshop", color: "31A8FF" },
+                  { name: "Canva", slug: "canva", color: "00C4CC" },
+                  { name: "Filmora", slug: "filmora", color: "1E90FF" },
+                  { name: "CapCut", slug: "capcut", color: "000000" },
+                  { name: "DaVinci", slug: "davinciresolve", color: "FF6B6B" },
                 ],
               },
             ].map((g) => (
