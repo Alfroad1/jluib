@@ -529,65 +529,105 @@ function Index() {
       {/* Stack */}
       <section id="tools" className="border-b border-border">
         <div className="mx-auto max-w-6xl px-6 py-20">
-          <p className="font-mono text-sm text-primary">// TOOLS</p>
-          <h2 className="mt-3 text-2xl font-bold tracking-tight">
-            Tools I work with
-          </h2>
+          <div className="flex items-end justify-between gap-6 flex-wrap">
+            <div>
+              <p className="font-mono text-sm text-primary">// TOOLS</p>
+              <h2 className="mt-3 text-2xl font-bold tracking-tight">
+                Tools I work with
+              </h2>
+              <p className="mt-2 text-sm text-muted-foreground max-w-md">
+                A curated stack for admin, communication, and AI-powered automation.
+              </p>
+            </div>
+            <p className="font-mono text-xs text-muted-foreground">
+              24+ tools · 3 categories
+            </p>
+          </div>
 
-          <div className="mt-8 grid gap-6 md:grid-cols-3">
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
             {[
               {
                 group: "Productivity & Admin",
+                tag: "01",
                 items: [
-                  "Google Workspace",
-                  "Gmail",
-                  "Drive",
-                  "Sheets",
-                  "Calendar",
-                  "Microsoft Office",
+                  { name: "Google Workspace", slug: "googleworkspace", color: "4285F4" },
+                  { name: "Gmail", slug: "gmail", color: "EA4335" },
+                  { name: "Google Drive", slug: "googledrive", color: "4285F4" },
+                  { name: "Sheets", slug: "googlesheets", color: "34A853" },
+                  { name: "Calendar", slug: "googlecalendar", color: "4285F4" },
+                  { name: "MS Office", slug: "microsoftoffice", color: "D83B01" },
                 ],
               },
               {
                 group: "Communication & PM",
+                tag: "02",
                 items: [
-                  "Slack",
-                  "MS Teams",
-                  "Zoom",
-                  "Google Meet",
-                  "Airtable",
-                  "Notion",
-                  "Trello",
+                  { name: "Slack", slug: "slack", color: "4A154B" },
+                  { name: "MS Teams", slug: "microsoftteams", color: "6264A7" },
+                  { name: "Zoom", slug: "zoom", color: "0B5CFF" },
+                  { name: "Google Meet", slug: "googlemeet", color: "00897B" },
+                  { name: "Airtable", slug: "airtable", color: "18BFFF" },
+                  { name: "Notion", slug: "notion", color: "FFFFFF" },
+                  { name: "Trello", slug: "trello", color: "0052CC" },
                 ],
               },
               {
                 group: "AI & Automation",
+                tag: "03",
                 items: [
-                  "n8n",
-                  "Supabase",
-                  "Qdrant",
-                  "Gemini",
-                  "ChatGPT",
-                  "Claude",
-                  "Grok",
-                  "GHL",
+                  { name: "n8n", slug: "n8n", color: "EA4B71" },
+                  { name: "Supabase", slug: "supabase", color: "3ECF8E" },
+                  { name: "Qdrant", slug: "qdrant", color: "DC244C" },
+                  { name: "Gemini", slug: "googlegemini", color: "8E75B2" },
+                  { name: "ChatGPT", slug: "openai", color: "10A37F" },
+                  { name: "Claude", slug: "anthropic", color: "D97757" },
+                  { name: "Grok", slug: "x", color: "FFFFFF" },
+                  { name: "GHL", slug: "gohighlevel", color: "FFFFFF" },
                 ],
               },
             ].map((g) => (
               <div
                 key={g.group}
-                className="rounded-xl border border-border bg-card p-6"
+                className="group relative rounded-xl border border-border bg-card p-6 transition-colors hover:border-primary/40"
               >
-                <p className="font-mono text-xs text-muted-foreground">
-                  {g.group}
-                </p>
-                <div className="mt-4 flex flex-wrap gap-1.5">
+                <div className="flex items-center justify-between">
+                  <p className="font-mono text-xs text-muted-foreground">
+                    {g.group}
+                  </p>
+                  <span className="font-mono text-[10px] text-primary/70">
+                    {g.tag}
+                  </span>
+                </div>
+                <div className="mt-5 grid grid-cols-3 gap-2">
                   {g.items.map((t) => (
-                    <span
-                      key={t}
-                      className="rounded-md border border-border bg-background px-2.5 py-1 font-mono text-xs text-foreground"
+                    <div
+                      key={t.name}
+                      title={t.name}
+                      className="flex flex-col items-center justify-center gap-2 rounded-lg border border-border bg-background/60 p-3 transition-all hover:border-primary/50 hover:bg-background hover:-translate-y-0.5"
                     >
-                      {t}
-                    </span>
+                      <img
+                        src={`https://cdn.simpleicons.org/${t.slug}/${t.color}`}
+                        alt={t.name}
+                        loading="lazy"
+                        className="h-6 w-6 opacity-90"
+                        onError={(e) => {
+                          const el = e.currentTarget as HTMLImageElement;
+                          const parent = el.parentElement;
+                          if (parent && !parent.querySelector("[data-fallback]")) {
+                            const span = document.createElement("span");
+                            span.setAttribute("data-fallback", "");
+                            span.className =
+                              "flex h-6 w-6 items-center justify-center rounded bg-primary/10 font-mono text-[10px] text-primary";
+                            span.textContent = t.name.slice(0, 2).toUpperCase();
+                            parent.insertBefore(span, el);
+                          }
+                          el.style.display = "none";
+                        }}
+                      />
+                      <span className="font-mono text-[10px] text-muted-foreground text-center leading-tight">
+                        {t.name}
+                      </span>
+                    </div>
                   ))}
                 </div>
               </div>
