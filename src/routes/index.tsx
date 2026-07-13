@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import autoparts from "@/assets/autoparts.png.asset.json";
-import fitness from "@/assets/fitness.png.asset.json";
-import sorter from "@/assets/sorter.png.asset.json";
-import emaillabel from "@/assets/emaillabel.png.asset.json";
-import rag from "@/assets/rag.png.asset.json";
+const autoparts = "/images/autoparts.png";
+const fitness = "/images/fitness.png";
+const sorter = "/images/sorter.png";
+const emaillabel = "/images/emaillabel.png";
+const rag = "/images/rag.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
